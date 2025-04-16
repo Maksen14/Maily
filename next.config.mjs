@@ -1,5 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// next.config.js
+const withPWA = require('next-pwa')({
+    dest: 'public',
+    register: true,
+    skipWaiting: true,
+  });
+  
+  /** @type {import('next').NextConfig} */
+  const nextConfig = {
     env: {
       HASHED_PASSWORD: process.env.HASHED_PASSWORD,
     },
@@ -17,5 +24,7 @@ const nextConfig = {
       parallelServerBuildTraces: true,
       parallelServerCompiles: true,
     },
-  }
+  };
+  
+  module.exports = withPWA(nextConfig);
   
