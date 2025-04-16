@@ -1,7 +1,7 @@
 import nextPWA from 'next-pwa';
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const baseConfig = {
   env: {
     HASHED_PASSWORD: process.env.HASHED_PASSWORD,
   },
@@ -21,9 +21,11 @@ const nextConfig = {
   },
 };
 
-export default nextPWA({
+// Wrap Next.js config with PWA plugin
+const withPWA = nextPWA({
   dest: 'public',
   register: true,
   skipWaiting: true,
-  ...nextConfig,
 });
+
+export default withPWA(baseConfig);
