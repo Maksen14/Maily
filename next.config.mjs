@@ -1,4 +1,4 @@
-import nextPWA from 'next-pwa.js';
+import nextPWA from 'next-pwa';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
